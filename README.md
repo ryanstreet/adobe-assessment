@@ -14,6 +14,10 @@
 - run `composer install` on the command line.
 - drop the provided `.env` file into the root of that directory.
 
+## Run Migrate Script
+- From the command line, run `php artisan migrate`.
+- It will ask you to create a SQLlite file.  When prompted, say yes. 
+
 ## Launch
 - From the command line, you can enter `herd open` to open the site.
 - Alternatively, you can go directly to `http://<directory-name>.test/` where `<directory-name>` is whatever you named the folder inside of Herd.
