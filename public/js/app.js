@@ -64,7 +64,6 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
-                        console.log(body);
                         this.lastJobId = body.job_id;
                         this.editedImageName = body.edited_image_name;
                         this.checkJobStatus(this.lastJobId);
@@ -88,7 +87,6 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
-                        console.log(body);
                         this.lastJobId = body.job_id;
                         this.editedImageName = body.edited_image_name;
                         this.checkJobStatus(this.lastJobId);
@@ -120,7 +118,6 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
-                        console.log(body);
                         this.lastJobId = body.job_id;
                         this.editedImageName = body.edited_image_name;
                         this.checkJobStatus(this.lastJobId);
@@ -141,7 +138,6 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
-                        console.log(body.status);
                         switch (body.status) {
                             case 'succeeded':
                                 this.hasEditedPhoto = true;
