@@ -4,7 +4,7 @@
 - Download and Install Herd for MacOS or Windows: https://herd.laravel.com/
 
 ## Step 2: Download and install Composer Command Line Tool
-- Download Composer here: [https://getcomposer.org/doc/00-intro.md.
+- Download Composer here: https://getcomposer.org/doc/00-intro.md.
 - Alternatively, you can run `brew install composer` on MacOS.
 
 ## Clone the Git Repo 
