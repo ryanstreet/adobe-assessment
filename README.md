@@ -16,4 +16,4 @@
 
 ## Launch
 - From the command line, you can enter `herd open` to open the site.
-- Alternatively, you can go directly to http://<directory-name>.test/ where `<directory-name>` is whatever you named the folder inside of Herd.
+- Alternatively, you can go directly to `http://<directory-name>.test/` where `<directory-name>` is whatever you named the folder inside of Herd.
