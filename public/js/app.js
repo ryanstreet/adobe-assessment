@@ -1,6 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
+            errorMessage: null,
             csrfToken: null,
             showAdvancedSettings: false,
             showUploadProgressBar: false,
@@ -27,6 +28,10 @@ const app = Vue.createApp({
          * Uploads photo to S3
          */
         uploadPhoto() {
+            if (!this.localPhoto) {
+                this.errorMessage = 'Please select a photo';
+                return;
+            }
             this.toggleUploadProgressBar();
             let formData = new FormData();
 
@@ -41,6 +46,10 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
+                    if (body.error) {
+                        this.errorMessage = body.errorMessage;
+                        return;
+                    }
                     this.basePhoto = body.photo;
                     this.originalImageName = body.original_image_name
                     this.toggleUploadProgressBar();
@@ -64,6 +73,10 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
+                        if (body.error) {
+                            this.errorMessage = body.errorMessage;
+                            return;
+                        }
                         this.lastJobId = body.job_id;
                         this.editedImageName = body.edited_image_name;
                         this.checkJobStatus(this.lastJobId);
@@ -87,6 +100,10 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
+                        if (body.error) {
+                            this.errorMessage = body.errorMessage;
+                            return;
+                        }
                         this.lastJobId = body.job_id;
                         this.editedImageName = body.edited_image_name;
                         this.checkJobStatus(this.lastJobId);
@@ -118,6 +135,10 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
+                        if (body.error) {
+                            this.errorMessage = body.errorMessage;
+                            return;
+                        }
                         this.lastJobId = body.job_id;
                         this.editedImageName = body.edited_image_name;
                         this.checkJobStatus(this.lastJobId);
@@ -168,6 +189,10 @@ const app = Vue.createApp({
             })
                 .then(res => res.json())
                 .then((body) => {
+                    if (body.error) {
+                        this.errorMessage = body.errorMessage;
+                        return;
+                    }
                     this.editedPhoto = body.image_url;
                 });
         },
@@ -227,6 +252,12 @@ const app = Vue.createApp({
             this.whites = 0;
             this.blacks = 0;
             this.clarity = 0;
+        },
+        /**
+         * Resets the error messaging.
+         */
+        clearErrorMessage() {
+            this.errorMessage = null;
         }
     },
     mounted() {

@@ -38,7 +38,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="container is-align-items-center">
+                <div class="container is-align-items-center" v-if="localPhoto">
                     <div class="block is-half has-text-centered">
                         <div class="control">
                             <button class="button is-primary">
@@ -74,6 +74,18 @@
             </div>
         </div>
     </section>
+    <section class="section" v-if="errorMessage">
+        <div class="container">
+            <div class="block">
+                <div class="notification is-danger">
+                    <button class="delete" @click="clearErrorMessage()"></button>
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <section id="upload-progress-bar" class="section" v-if="showUploadProgressBar">
         <div class="container">
             <div class="block is-half">
